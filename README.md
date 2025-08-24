@@ -1,2 +1,2 @@
-# FarersMarkets
+# FarmersMarkets
 Study project
