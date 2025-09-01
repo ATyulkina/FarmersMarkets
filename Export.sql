@@ -61,7 +61,6 @@ CREATE TABLE Export (
 	WildHarvested varchar NULL,
 	updateTime varchar NULL,
 	CONSTRAINT Export_pk PRIMARY KEY (FMID)
-	Review varchar NULL,
 );
 
 
@@ -69,6 +68,9 @@ COPY Export
 FROM 'C:\PythonProjects\Export\Export.csv'
 DELIMITER ','
 CSV HEADER;
+
+ALTER TABLE Export 
+ADD COLUMN Review varchar NULL;
 
 CREATE TABLE Markets AS
 SELECT FMID, MarketName, Website, Facebook, Twitter, Youtube, OtherMedia
@@ -118,4 +120,5 @@ ALTER TABLE Products
 ADD COLUMN Products_id serial4 NOT NULL,
 ADD CONSTRAINT Products_pk PRIMARY KEY (Products_id),
 ADD CONSTRAINT Products_Markets_fk FOREIGN KEY (FMID) REFERENCES Markets(FMID);
+
 
